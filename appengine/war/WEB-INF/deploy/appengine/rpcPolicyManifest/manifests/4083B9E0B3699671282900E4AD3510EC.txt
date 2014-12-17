@@ -1,0 +1,2 @@
+serviceClass: de.hdm.appengine.client.GreetingService
+path: F75108DCE5AC66EE49B276879EA3C123.gwt.rpc

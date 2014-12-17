@@ -1,0 +1,3 @@
+# Module appengine
+# RPC service class, partial path of RPC policy file
+de.hdm.appengine.client.GreetingService, F75108DCE5AC66EE49B276879EA3C123.gwt.rpc
