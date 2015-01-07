@@ -29,6 +29,8 @@ import org.apache.commons.fileupload.FileItemStream;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.google.appengine.api.urlfetch.HTTPHeader;
+import com.google.appengine.api.urlfetch.HTTPMethod;
+import com.google.appengine.api.urlfetch.HTTPRequest;
 import com.google.appengine.api.urlfetch.HTTPResponse;
 import com.google.appengine.api.urlfetch.URLFetchService;
 import com.google.appengine.api.urlfetch.URLFetchServiceFactory;
@@ -65,8 +67,38 @@ public class ImageUploadImpl extends HttpServlet {
 					}
 					
 				}
-				
-				/*URLFetchService fetcher = URLFetchServiceFactory.getURLFetchService();
+				/* URLFetchService urlFetchService = URLFetchServiceFactory.getURLFetchService();
+				URL url = new URL("http://130.211.101.46");
+				HTTPRequest request1 = new HTTPRequest(url, HTTPMethod.POST, withDefaults().setDeadline(30.0));
+				Gson gson = new Gson();
+				Payload payload = new Payload("Sales Representative", "2013-01-31", true);
+				String json = gson.toJson(payload);
+				request.setPayload(json.getBytes());
+				request.setHeader(new HTTPHeader("Content-Type", "application/json"));
+				HTTPResponse response = urlFetchService.fetch(request);
+				int code = response.getResponseCode();
+				if (code == HttpURLConnection.HTTP_OK ) {
+				byte[] content = response.getContent();
+				resp.getOutputStream().write(content);
+				}
+			}
+						 
+			public static class Payload {
+			public String position;
+			public String dateOfInterview;
+			public boolean refused;
+				 
+			public Payload() { 
+			}
+					 
+			public Payload(String position, String dateOfInterview, boolean refused) {
+				this.position = position;
+				this.dateOfInterview = dateOfInterview;
+				this.refused = refused;
+				}
+			} */
+			
+			/*URLFetchService fetcher = URLFetchServiceFactory.getURLFetchService();
 		         try {
 		             URL url = new URL("http://someurl.com");
 		             Future future = fetcher.fetchAsync(url);
